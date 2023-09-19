@@ -5,7 +5,7 @@ window.config = {
   modes: [],
   customizationService: {
     // Shows a custom route -access via http://localhost:3000/custom
-    // helloPage: '@ohif/extension-default.customizationModule.helloPage',
+    customPages: '@ohif/extension-default.customizationModule.customPages',
   },
   showStudyList: true,
   // some windows systems have issues with more than 3 web workers

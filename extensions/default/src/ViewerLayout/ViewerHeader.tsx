@@ -89,6 +89,23 @@ function ViewerHeader({ hotkeysManager, extensionManager, servicesManager }) {
     },
   ];
 
+  if (localStorage.getItem('loggedIn')) {
+    menuOptions.push({
+      title: 'Logout',
+      icon: '',
+      onClick: () => {
+        localStorage.removeItem('loggedIn')
+        navigate({ pathname: '/' }, { replace: true})
+      }
+    })
+  } else {
+    menuOptions.push({
+      title: 'Login',
+      icon: '',
+      onClick: () => { navigate({ pathname: '/login' }) }
+    })
+  }
+
   if (appConfig.oidc) {
     menuOptions.push({
       title: t('Header:Logout'),

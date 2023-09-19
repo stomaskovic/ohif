@@ -448,6 +448,23 @@ function WorkList({
     });
   }
 
+  if (localStorage.getItem('loggedIn')) {
+    menuOptions.push({
+      title: 'Logout',
+      icon: '',
+      onClick: () => {
+        localStorage.removeItem('loggedIn')
+        navigate({ pathname: '/' }, { replace: true})
+      }
+    })
+  } else {
+    menuOptions.push({
+      title: 'Login',
+      icon: '',
+      onClick: () => { navigate({ pathname: '/login' }) }
+    })
+  }
+
   const { customizationService } = servicesManager.services;
   const { component: dicomUploadComponent } =
     customizationService.get('dicomUploadComponent') ?? {};

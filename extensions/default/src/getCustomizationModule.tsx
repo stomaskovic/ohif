@@ -3,6 +3,8 @@ import React from 'react';
 import DataSourceSelector from './Panels/DataSourceSelector';
 import DataSourceConfigurationComponent from './Components/DataSourceConfigurationComponent';
 import { GoogleCloudDataSourceConfigurationAPI } from './DataSourceConfigurationAPI/GoogleCloudDataSourceConfigurationAPI';
+import LoginComponent from "./Components/LoginComponent";
+import AdminUserListComponent from "./Components/AdminUserListComponent";
 
 /**
  *
@@ -16,13 +18,17 @@ import { GoogleCloudDataSourceConfigurationAPI } from './DataSourceConfiguration
 export default function getCustomizationModule({ servicesManager, extensionManager }) {
   return [
     {
-      name: 'helloPage',
+      name: 'customPages',
       value: {
         id: 'customRoutes',
         routes: [
           {
-            path: '/custom',
-            children: () => <h1 style={{ color: 'white' }}>Hello Custom Route</h1>,
+            path: '/login',
+            children: () => <LoginComponent />,
+          },
+          {
+            path: '/admin',
+            children: () => <AdminUserListComponent />,
           },
         ],
       },
